@@ -5,7 +5,8 @@
 # A user can specifically define the nextY (for the second grouping bar) and 
 # the same for where the asterisk is placed, but you don't have to.
 # You can pass other arguments that could be interpreted by lines or text function.
-add_statsBars <- function(func_ranges, func_startY, func_nextY = NULL, func_asteriskY = NULL, func_plotUp = TRUE, ...){
+add_statsBars <- function(func_ranges, func_startY, func_nextY = NULL, func_asteriskY = NULL, 
+							func_plotUp = TRUE, func_plotLabels = "*", ...){
 	# We check that we've been passed a list of length two
 	if(!is.list(func_ranges)){
 		stopError("Passed a non list as func_ranges for add_statsBars, don't do this please.")
@@ -38,7 +39,7 @@ add_statsBars <- function(func_ranges, func_startY, func_nextY = NULL, func_aste
 	}
 	text(x=mean(unlist(func_ranges)),
 		y = func_asteriskY,
-		labels = "*",
+		labels = func_plotLabels,
 		...)
 	# We return nothing as this is a plotting function.
 	return( NULL )
